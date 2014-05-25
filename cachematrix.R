@@ -8,17 +8,17 @@
 makeCacheMatrix <- function(x = matrix()) { # 'x' is a invertible square matrix
 	im <- NULL   # set inverse matrix 'im' to undefined object(i.e. NULL)
 	set <- function(y) {  # set(y) function
-		x <<- y         # set 'x' to matrix 'y' in a different environment
-		im <<- NULL     # set inverse matrix 'im' to NULL 
+		x <<- y       # set 'x' to matrix 'y' in a different environment
+		im <<- NULL   # set inverse matrix 'im' to NULL 
 	}
 	get <- function() x   # get() function
                               # return matrix 'x'
 	setinverse <- function(inverse) { # setinverse(inverse) function
-                im <<- inverse          # set 'im' to inverse matrix 'inverse' 
-                                        #   in a different environment
+                im <<- inverse            # set 'im' to inverse matrix 'inverse' 
+                                          #   in a different environment
 	}
 	getinverse <- function() im  # getinverse() function
-                                   # return inverse matrix 'im'
+                                     # return inverse matrix 'im'
         
         # create the list and give the elements appropriate names
 	list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
