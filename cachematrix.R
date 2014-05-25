@@ -12,7 +12,7 @@ makeCacheMatrix <- function(x = matrix()) { # 'x' is a invertible square matrix
 		im <<- NULL     # set inverse matrix 'im' to NULL 
 	}
 	get <- function() x   # get() function
-                            # return matrix 'x'
+                              # return matrix 'x'
 	setinverse <- function(inverse) { # setinverse(inverse) function
                 im <<- inverse          # set 'im' to inverse matrix 'inverse' 
                                         #   in a different environment
@@ -20,7 +20,7 @@ makeCacheMatrix <- function(x = matrix()) { # 'x' is a invertible square matrix
 	getinverse <- function() im  # getinverse() function
                                    # return inverse matrix 'im'
         
-      # create the list and give the elements appropriate names
+        # create the list and give the elements appropriate names
 	list(set=set, get=get, setinverse=setinverse, getinverse=getinverse)
 }
 
@@ -31,17 +31,17 @@ makeCacheMatrix <- function(x = matrix()) { # 'x' is a invertible square matrix
 ## the inverse from cache.
 
 cacheSolve <- function(x, ...) {
-      ## Return a matrix that is the inverse of 'x'
-      # 'x' is list including functions and values
+        ## Return a matrix that is the inverse of 'x'
+        # 'x' is list including functions and values
 
 	im <- x$getinverse()  # set 'im' to inverse matrix value stored in 'x'
 	if (!is.null(im)) {   # In the case that there is valid inverse matrix 'im' 
-                            #   instead of NULL
+                              #   instead of NULL
 		message("getting cached data") # display the message
 		return(im)  # return cached inverse matrix 'im'
 	}
         
-      ## In the case that 'im' is NULL
+        ## In the case that 'im' is NULL
 	data <- x$get()  # set 'data' to matrix value stored in 'x'
 	im <- solve(data, ...)  # compute inverse matrix of 'data' and then set 'im' to the result
 	x$setinverse(im)  # set inverse matrix value in a different environment to 'im'
